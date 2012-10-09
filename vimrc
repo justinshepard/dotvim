@@ -1,4 +1,4 @@
-" vim: set foldmarker={,} foldlevel=0 foldmethod=marker:
+" vim: set sw=4 ts=4 expandtab foldmarker={,} foldlevel=0 foldmethod=marker:
 "     _ ___     _       
 "  _ | / __|_ _(_)_ __  
 " | || \__ \ V / | '  \ 
@@ -11,9 +11,9 @@
 "
 
 " Pathogen {
-	call pathogen#infect()
-	syntax on
-	filetype plugin indent on
+   call pathogen#infect()
+   syntax on
+   filetype plugin indent on
 " }
 
 " Environment {
@@ -26,13 +26,15 @@
     " Windows Compatibility {
         if has('win32') || has('win64')
             set runtimepath=$HOME/.vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,$HOME/.vim/after
+            set guifont=ProggyCleanSZCP:h8:cANSI
+            colorscheme desert
         endif
     " }
 " }
 
 " General {
     set background=dark
-    if !has('gui')
+    if !has('gui') && !(has('win32') || has('win64'))
         set term=$TERM
     endif
     filetype plugin indent on
@@ -64,8 +66,8 @@
 " Vim UI {
     if &term =~ "xterm"
         let &t_Co=256
+        colorscheme desert256
     endif
-    colorscheme desert256
     set tabpagemax=15
     set showmode
 
@@ -86,7 +88,7 @@
         set statusline+=%=%-14.(%l,%c%V%)\ %p%%
     endif
 
-	 set foldenable
+    set foldenable
 
     set backspace=indent,eol,start
     set linespace=0
@@ -133,7 +135,7 @@
     nmap <leader>f2 :set foldlevel=2<CR>
     nmap <leader>f3 :set foldlevel=3<CR>
     nmap <leader>f4 :set foldlevel=4<CR>
-	 nmap <leader>f5 :set foldlevel=5<CR>
+    nmap <leader>f5 :set foldlevel=5<CR>
     nmap <leader>f6 :set foldlevel=6<CR>
     nmap <leader>f7 :set foldlevel=7<CR>
     nmap <leader>f8 :set foldlevel=8<CR>
