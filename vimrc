@@ -26,15 +26,20 @@
     " Windows Compatibility {
         if has('win32') || has('win64')
             set runtimepath=$HOME/.vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,$HOME/.vim/after
-            set guifont=ProggyCleanSZCP:h8:cANSI
-            colorscheme desert
         endif
     " }
 " }
 
 " General {
     set background=dark
-    if !has('gui') && !(has('win32') || has('win64'))
+    if has('gui')
+        colorscheme desert
+        if (has('win32') || has('win64'))
+            set guifont=ProggyCleanSZCP:h8:cANSI
+        else
+            set guifont=DejaVu\ LGC\ Sans\ Mono\ 9
+        endif
+    elseif !(has('win32') || has('win64'))
         set term=$TERM
     endif
     filetype plugin indent on
@@ -149,6 +154,14 @@
 
     " Adjust viewports to same size
     map <Leader>= <C-w>=
+" }
+
+" Vim-LaTeX {
+
+    " Add src-specials to compile rules
+    let g:Tex_CompileRule_dvi = 'latex -interaction=nonstopmode -src-specials $*'
+    let g:Tex_ViewRuleCompletet_dvi = 'xdvi -editor "gvim --servername gVim --remote %\%l \%f" $* &'
+
 " }
 
 " Functions {
