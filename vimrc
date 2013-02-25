@@ -31,6 +31,7 @@
 " }
 
 " General {
+    let loaded_matchparen = 1
     set background=dark
     if has('gui')
         colorscheme desert
@@ -113,6 +114,9 @@
     " set si
     " set nowrap
 
+    " Enable fancy symbols for Powerline
+    let g:Powerline_symbols = "fancy"
+
 " }
 
 " Key (re)Mappings {
@@ -146,14 +150,24 @@
     nmap <leader>f8 :set foldlevel=8<CR>
     nmap <leader>f9 :set foldlevel=9<CR>
 
-    " Clearing hlsearch
-    nmap <silent> <leader>/ :nohlsearch<CR>
-
     " Forgot to sudo? Write it anyway!
     cmap w!! w !sudo tee % >/dev/null
 
     " Adjust viewports to same size
     map <Leader>= <C-w>=
+
+    " Clearing hlsearch
+    nmap \q :nohlsearch<CR>
+
+    " Paste mode
+    nmap \o :set paste!<CR>
+
+    " Toggle line numbers
+    nmap \l :setlocal number!<CR>
+
+    " Navigate buffers
+    nmap <C-n> :bnext<CR>
+    nmap <C-p> :bprev<CR>
 " }
 
 " Vim-LaTeX {
