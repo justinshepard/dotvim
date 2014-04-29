@@ -1,4 +1,4 @@
-" vim: set sw=4 ts=4 expandtab foldmarker={,} foldlevel=0 foldmethod=marker:
+" vim: set sw=4 ts=4 expandtab foldmarker={,} foldmethod=marker:
 "     _ ___     _       
 "  _ | / __|_ _(_)_ __  
 " | || \__ \ V / | '  \ 
@@ -21,6 +21,7 @@
         set nocompatible
         set background=dark
         set modeline
+        set encoding=utf-8
     " }
 
     " Windows Compatibility {
@@ -114,8 +115,20 @@
     " set si
     " set nowrap
 
-    " Enable fancy symbols for Powerline
-    let g:Powerline_symbols = "fancy"
+    " Enable fancy symbols for airline
+    let g:airline_powerline_fonts = 1
+    "powerline symbols
+    "if !exists('g:airline_symbols')
+    "let g:airline_symbols = {}
+    "endif
+    "
+    "let g:airline_left_sep = ''
+    "let g:airline_left_alt_sep = ''
+    "let g:airline_right_sep = ''
+    "let g:airline_right_alt_sep = ''
+    "let g:airline_symbols.branch = ''
+    "let g:airline_symbols.readonly = ''
+    "let g:airline_symbols.linenr = ''
 
 " }
 
