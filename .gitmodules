@@ -28,9 +28,6 @@
 [submodule "bundle/vim-snipmate"]
 	path = bundle/vim-snipmate
 	url = https://github.com/msanders/snipmate.vim.git
-[submodule "bundle/vim-minibufexpl"]
-	path = bundle/vim-minibufexpl
-	url = https://github.com/fholgado/minibufexpl.vim.git
 [submodule "bundle/vim-latex"]
 	path = bundle/vim-latex
 	url = https://github.com/jcf/vim-latex.git
