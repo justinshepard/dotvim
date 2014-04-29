@@ -183,6 +183,26 @@
     nmap <C-p> :bprev<CR>
 " }
 
+" NERDTree {
+
+    " Enable NERDTree window automatically, and close if it's the last buffer.
+    autocmd VimEnter * NERDTree
+    autocmd BufEnter * NERDTreeMirror
+    autocmd VimEnter * wincmd w
+    autocmd WinEnter * call s:CloseIfOnlyNerdTreeLeft()
+
+    function! s:CloseIfOnlyNerdTreeLeft()
+        if exists("t:NERDTreeBufName")
+            if bufwinnr(t:NERDTreeBufName) != -1
+                if winnr("$") == 1
+                    q
+                endif
+            endif
+        endif
+    endfunction
+
+" }
+
 " Vim-LaTeX {
 
     " Add src-specials to compile rules
